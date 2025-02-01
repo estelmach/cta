@@ -136,24 +136,26 @@ def main():
     fig, (ax1, ax2) = plt.subplots(
         nrows=2, 
         ncols=1, 
-        figsize=(4.5, 8),
-        gridspec_kw={'height_ratios': [1, 4]}
+        figsize=(6, 11.66),
+        gridspec_kw={'height_ratios': [5, 1]}
     )
 
-
+    fig.tight_layout()
 
     ###
     ### TRANSIT AND STATION MAP
     ###
-    # remove coordinates from the chicago map
-    ax2.set_axis_off()
 
-    fig_chicago = chicago.boundary.plot(ax=ax2, lw=.66, alpha=.33)
-    fig_rail_lines = lines.plot(ax=ax2, color=lines.Color, zorder=1)
+    # remove coordinates from the chicago map
+    ax1.set_axis_off()
+    ax1.set_title('Monthly Ridership by Chicago \'L\' Station \nStation bubble size = ridership', size=8)
+
+    fig_chicago = chicago.boundary.plot(ax=ax1, lw=.66, alpha=.33)
+    fig_rail_lines = lines.plot(ax=ax1, color=lines.Color, zorder=1)
     
     # plot on ax to remove later
     january_2001 = year_month_ridership_stations.loc[year_month_ridership_stations.YearMonth == '2001-01']
-    fig_stations = ax2.scatter(
+    fig_stations = ax1.scatter(
         x=january_2001.lat,
         y=january_2001.lon,
         s=january_2001.markersize, 
@@ -176,7 +178,7 @@ def main():
 
     def animate(frame): 
         stations_timeframe = year_month_ridership_stations.loc[year_month_ridership_stations.YearMonthKey == frame]
-        fig_stations = ax2.scatter(
+        fig_stations = ax1.scatter(
             x=stations_timeframe.lat,
             y=stations_timeframe.lon,
             s=stations_timeframe.markersize, 
