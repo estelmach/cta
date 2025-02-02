@@ -1,0 +1,18 @@
+﻿RailLine,SystemRoute,SystemRouteID,SystemRouteHexColor
+Yellow Line,Yellow,YL,#f9e300
+Orange Line,Orange,OR,#f9461c
+Blue Line (O'Hare),Blue,BL,#00a1de
+Blue Line (Forest Park),Blue,BL,#00a1de
+Pink Line,Pink,PK,#e27ea6
+Brown,Brown,BR,#62361b
+Purple (Express),Purple Exp,PE,#522398
+Red,Red,RD,#c60c30
+Brown Line,Brown,BR,#62361b
+Purple Line,Purple,PR,#522398
+Red Line,Red,RD,#c60c30
+Purple,Purple,PR,#522398
+Green,Green,GR,#009b3a
+Orange,Orange,OR,#f9461c
+Pink,Pink,PK,#e27ea6
+Purple (Exp),Purple Exp,PE,#522398
+Green Line,Green,GR,#009b3a
