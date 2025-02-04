@@ -8,7 +8,7 @@ import os
 def load_data():
 
     # Load the data
-    filepath = 'data\\silver\\'
+    filepath = '\\data\\silver\\'
 
     # load geodata
     parkRide_df = gpd.read_parquet(filepath + 'DimParkRide.parquet')
@@ -64,8 +64,6 @@ def plot_map(railLine_df, railStation_df, commArea_df):
 
 def main():
     text = st.empty()
-
-    st.write(os.listdir('.\\'))
 
     text.write('Loading data...')
     _, railLine_df, railStation_df, commArea_df, _ = load_data()
