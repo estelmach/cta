@@ -8,6 +8,7 @@ import os
 def load_data():
 
     # Load the data
+    st.write(os.listdir('/data/silver/'))
     filepath = '/data/silver/'
 
     # load geodata
