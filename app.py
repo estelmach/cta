@@ -2,6 +2,7 @@ import pandas as pd
 import geopandas as gpd
 import altair as alt
 import streamlit as st
+import json
 import os
 
 @st.cache_data
@@ -14,12 +15,15 @@ def load_data():
     parkRide_df = gpd.read_parquet(filepath + 'DimParkRide.parquet')
     railLine_df = gpd.read_parquet(filepath + 'DimRailLine.parquet')
     railStation_df = gpd.read_parquet(filepath + 'DimRailStation.parquet')
-    commArea_df = gpd.read_parquet(filepath + 'DimCommunityArea.parquet')
+
+    with open(filepath + 'DimCommArea.json') as json_file:
+        commArea_geojson = json.load(json_file)
+    commArea_data = alt.Data(commArea_geojson, format=alt.DataFormat(property='features'))
 
     # load other data
     stationEntries_df = pd.read_parquet(filepath + 'FactStationEntries.parquet')
 
-    return parkRide_df, railLine_df, railStation_df, commArea_df, stationEntries_df
+    return parkRide_df, railLine_df, railStation_df, commArea_data, stationEntries_df
 
 
 def plot_map(railLine_df, railStation_df, commArea_df):
@@ -67,11 +71,11 @@ def main():
     text = st.empty()
 
     text.write('Loading data...')
-    _, railLine_df, railStation_df, commArea_df, _ = load_data()
+    _, railLine_df, railStation_df, commArea_data, _ = load_data()
     text.write('Data loaded!')
 
     text.write('Plotting map...')
-    plot_map(railLine_df, railStation_df, commArea_df)
+    plot_map(railLine_df, railStation_df, commArea_data)
 
 
 if __name__ == "__main__":
