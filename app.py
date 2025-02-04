@@ -2,12 +2,15 @@ import pandas as pd
 import geopandas as gpd
 import altair as alt
 import streamlit as st
+import os
 
 @st.cache_data
 def load_data():
 
     # Load the data
     filepath = '.\\data\\silver\\'
+
+    st.write(os.listdir())
 
     # load geodata
     parkRide_df = gpd.read_parquet(filepath + 'DimParkRide.parquet')
