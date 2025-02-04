@@ -65,7 +65,7 @@ def plot_map(railLine_df, railStation_df, commArea_df):
 def main():
     text = st.empty()
 
-    st.write(os.listdir('data\\'))
+    st.write(os.listdir('.\\'))
 
     text.write('Loading data...')
     _, railLine_df, railStation_df, commArea_df, _ = load_data()
