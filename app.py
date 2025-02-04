@@ -17,7 +17,7 @@ def load_data():
     commArea_df = gpd.read_parquet(filepath + 'DimCommunityArea.parquet')
 
     # load other data
-    stationEntries_df = pd.read_parquet(filepath + 'FactSTationEntries.parquet')
+    stationEntries_df = pd.read_parquet(filepath + 'FactStationEntries.parquet')
 
     return parkRide_df, railLine_df, railStation_df, commArea_df, stationEntries_df
 
