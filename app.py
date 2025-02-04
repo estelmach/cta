@@ -50,8 +50,9 @@ def plot_map(railLine_df, railStation_df, commArea_df):
         size=30
     ).encode(
         longitude='lon', 
-        latitude='lat'
-    ).tooltip(['StationName', 'StationID'])
+        latitude='lat',
+        tooltip='StationName'
+    )
 
     # comebine into a single map
     layered_map = commArea_map + railLine_map + railStation_map
