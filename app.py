@@ -8,8 +8,7 @@ import os
 def load_data():
 
     # Load the data
-    st.write(os.listdir('./data/silver/'))
-    filepath = '/data/silver/'
+    filepath = './data/silver/'
 
     # load geodata
     parkRide_df = gpd.read_parquet(filepath + 'DimParkRide.parquet')
